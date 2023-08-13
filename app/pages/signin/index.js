@@ -1,13 +1,18 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useState, useRef } from 'react';
+import { router } from 'expo-router';
 
-import { styles } from './styles';
+import styles from './styles';
 
-export default function App() {
+export default function Signin() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
   const passwordRef = useRef(null)
+
+  function handleOpenSignup() {
+    router.replace('/pages/signup')
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login_</Text>
@@ -34,7 +39,7 @@ export default function App() {
       </TouchableOpacity>
       <View style={styles.divisor} />
       <TouchableOpacity 
-        onPress={""}
+        onPress={handleOpenSignup}
         style={styles.buttonSignup}
       >
         <Text style={styles.textSignup}>Cadastre-se</Text>
